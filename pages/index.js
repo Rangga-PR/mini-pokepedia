@@ -1,19 +1,16 @@
-import Flex from '@/common/Flex/Flex';
 import Head from 'next/head';
+import Home from '@/components/Home/Home';
+import MainLayout from '@/layouts/MainLayout';
 
-export default function Home() {
+export default function Index() {
   return (
-    <div>
+    <MainLayout>
       <Head>
-        <title>Create Next App</title>
+        <title>Pokepedia</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Flex>
-          <p>Testing</p>
-        </Flex>
-      </main>
-    </div>
+      <Home />
+    </MainLayout>
   );
 }

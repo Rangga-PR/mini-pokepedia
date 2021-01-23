@@ -12,8 +12,10 @@
     "coverage": "cross-env NODE_ENV=test jest --collectCoverage"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.7",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
+    "graphql": "^15.4.0",
     "next": "10.0.5",
     "prop-types": "^15.7.2",
     "react": "17.0.1",

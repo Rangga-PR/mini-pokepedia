@@ -7,6 +7,14 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
   },
   moduleNameMapper: {
+    '@/components(.*)$': '<rootDir>/src/components/components$1',
+    '@/common(.*)$': '<rootDir>/src/components/common$1',
+    '@/layouts(.*)$': '<rootDir>/src/components/layouts$1',
+    '@/hooks(.*)$': '<rootDir>/src/components/hooks$1',
+    '@/helpers(.*)$': '<rootDir>/src/components/helpers$1',
+    '@/services(.*)$': '<rootDir>/src/components/services$1',
+    '@/styles(.*)$': '<rootDir>/src/components/styles$1',
+    '@/graphql(.*)$': '<rootDir>/src/components/graphql$1',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',

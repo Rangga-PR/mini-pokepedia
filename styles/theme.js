@@ -8,7 +8,7 @@ export default {
     yellow: `#ffe05d`,
   },
   fonts: {
-    twop: 'Press Start 2P',
+    twop: 'Press-Start-2P',
     roboto: 'Roboto',
   },
   fontSizes: {

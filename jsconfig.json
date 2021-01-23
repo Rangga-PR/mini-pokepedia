@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["src/components/*"],
+      "@/common/*": ["src/components/common/*"],
+      "@/layouts/*": ["src/layouts/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/helpers/*": ["src/helpers/*"],
+      "@/services/*": ["src/services/*"],
+      "@/styles/*": ["styles/*"],
+      "@/graphql/*": ["src/graphql/*"]
+    }
+  }
+}

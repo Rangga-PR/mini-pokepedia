@@ -5,6 +5,7 @@ export const GET_POKEMONS = gql`
     pokemons(limit: $limit, offset: $offset) {
       next
       previous
+      count
       results {
         id
         name

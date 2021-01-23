@@ -1,12 +1,24 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
+import { offsetLimitPagination } from '@apollo/client/utilities';
+
 let apolloClient;
 
 const createApolloClient = () => {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
     uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT,
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Query: {
+          fields: {
+            pokemons: {
+              results: offsetLimitPagination(),
+            },
+          },
+        },
+      },
+    }),
   });
 };
 

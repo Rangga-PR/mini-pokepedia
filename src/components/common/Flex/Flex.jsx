@@ -1,4 +1,11 @@
-import { background, flexbox, layout, space } from 'styled-system';
+import {
+  background,
+  border,
+  color,
+  flexbox,
+  layout,
+  space,
+} from 'styled-system';
 
 import styled from '@emotion/styled';
 
@@ -7,7 +14,9 @@ const Flex = styled.div(
   space,
   flexbox,
   layout,
-  background
+  background,
+  border,
+  color
 );
 
 export default Flex;

@@ -7,12 +7,14 @@ import React from 'react';
 import Tag from '@/common/Tag/Tag';
 import Type from '@/components/common/Typography/TypoGraphy';
 import { pokemonTypes } from '@/helpers/index';
+import useGetTrainerData from '@/hooks/useGetTrainerData';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 const PokemonDetail = () => {
   const { name } = useParams();
-  const { loading, error, data } = useQuery(GET_POKEMON, {
+  const trainer = useGetTrainerData();
+  const { loading, data } = useQuery(GET_POKEMON, {
     variables: { name },
   });
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import Button from '@/common/Button/Button';
 import CreateTrainer from '@/components/CreateTrainer/CreateTrainer';
@@ -9,22 +9,26 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Modal from '@/common/Modal/Modal';
 import PokemonList from '@/components/PokemonList/PokemonList';
 import Type from '@/components/common/Typography/TypoGraphy';
-import useGetTrainerData from '@/hooks/useGetTrainerData';
+import { trainerStore } from '@/context/trainerContext';
 import { useQuery } from '@apollo/client';
 
 const Home = () => {
-  const trainer = useGetTrainerData();
+  const trainer = useContext(trainerStore);
   const [createTrainer, setCreateTrainer] = useState(false);
   const [limit, setLimit] = useState(50);
   const [count, setCount] = useState(1000);
   const [pokemons, setPokemons] = useState([]);
-  const { loading, error, data, fetchMore } = useQuery(GET_POKEMONS, {
+  const { loading, data, fetchMore } = useQuery(GET_POKEMONS, {
     notifyOnNetworkStatusChange: true,
     variables: {
       offset: 0,
       limit,
     },
   });
+
+  useEffect(() => {
+    console.log(trainer);
+  }, [trainer]);
 
   useEffect(() => {
     data && setPokemons(data.pokemons.results);
@@ -48,7 +52,7 @@ const Home = () => {
     <Flex as="section" width="100%" flexDirection="column">
       <HeroImage imgUrl="/image/pokemon.webp" width="100%" height="300px">
         <Flex flexDirection="column" justifyContent="flex-end" p={16}>
-          {!trainer && (
+          {!trainer.state && (
             <Button variant="red" onClick={() => setCreateTrainer(true)}>
               Start Collecting
             </Button>

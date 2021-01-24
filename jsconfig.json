@@ -9,7 +9,8 @@
       "@/helpers/*": ["src/helpers/*"],
       "@/services/*": ["src/services/*"],
       "@/styles/*": ["styles/*"],
-      "@/graphql/*": ["src/graphql/*"]
+      "@/graphql/*": ["src/graphql/*"],
+      "@/context/*": ["src/context/*"]
     }
   }
 }

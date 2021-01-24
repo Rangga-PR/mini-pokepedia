@@ -4,6 +4,7 @@ import {
   color,
   flexbox,
   layout,
+  position,
   space,
 } from 'styled-system';
 
@@ -16,7 +17,8 @@ const Flex = styled.div(
   layout,
   background,
   border,
-  color
+  color,
+  position
 );
 
 export default Flex;

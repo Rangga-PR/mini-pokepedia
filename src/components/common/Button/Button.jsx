@@ -23,7 +23,7 @@ const Button = styled.button`
       white: { color: 'black', bg: 'white' },
       red: { color: 'white', bg: 'red' },
       green: { color: 'white', bg: 'green' },
-      blue: { color: 'white', bg: 'blue' },
+      blue: { color: 'yellow', bg: 'blue' },
       yellow: { color: 'white', bg: 'yellow' },
     },
   })}

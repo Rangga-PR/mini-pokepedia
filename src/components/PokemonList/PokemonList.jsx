@@ -1,4 +1,5 @@
 import Grid from '@/common/Grid/Grid';
+import { Link } from 'react-router-dom';
 import PokemonCard from '@/components/PokemonCard/PokemonCard';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -12,7 +13,9 @@ const PokemonList = ({ dataSource, loading }) => {
         'repeat(8, minmax(100px, 12.5%))',
       ]}>
       {dataSource.map((val) => (
-        <PokemonCard key={val.id} data={val} />
+        <Link key={val.id} to={`/pokemon/${val.name}`}>
+          <PokemonCard data={val} />
+        </Link>
       ))}
 
       {loading &&

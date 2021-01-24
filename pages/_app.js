@@ -10,9 +10,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={apolloClient} suppressHydrationWarning>
       {globalStyles}
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <div suppressHydrationWarning>
+        {typeof window === 'undefined' ? null : (
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        )}
+      </div>
     </ApolloProvider>
   );
 }

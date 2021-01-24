@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
-
 import Card from '@/common/Card/Card';
 import Flex from '@/common/Flex/Flex';
 import { GET_POKEMON } from '@/graphql/query';
 import Picture from '@/common/Picture/Picture';
 import PokemonDetailLoading from './PokemonDetailLoading';
+import React from 'react';
 import Tag from '@/common/Tag/Tag';
 import Type from '@/components/common/Typography/TypoGraphy';
 import { pokemonTypes } from '@/helpers/index';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 const PokemonDetail = () => {
+  const { name } = useParams();
   const { loading, error, data } = useQuery(GET_POKEMON, {
-    variables: { name: 'pikachu' },
+    variables: { name },
   });
 
   if (loading) return <PokemonDetailLoading />;

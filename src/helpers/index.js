@@ -18,3 +18,13 @@ export const pokemonTypes = [
   'steel',
   'fairy',
 ];
+
+export const setLocalItem = (key, value) => {
+  window !== 'undefined' &&
+    window.localStorage.setItem(key, JSON.stringify(value));
+};
+
+export const getLocalItem = (key) => {
+  if (window === 'undefined') return;
+  return JSON.parse(window.localStorage.getItem(key));
+};

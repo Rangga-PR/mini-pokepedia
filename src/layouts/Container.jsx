@@ -3,11 +3,7 @@ import React from 'react';
 
 const Container = ({ children }) => {
   return (
-    <Flex
-      minHeight="100vh"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center">
+    <Flex flexDirection="column" alignItems="center" justifyContent="center">
       {children}
     </Flex>
   );

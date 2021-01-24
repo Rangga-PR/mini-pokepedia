@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
 import Button from '@/common/Button/Button';
+import CreateTrainer from '@/components/CreateTrainer/CreateTrainer';
 import Flex from '@/common/Flex/Flex';
 import { GET_POKEMONS } from '@/graphql/query';
 import HeroImage from '@/components/common/HeroImage/HeroImage';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Modal from '@/common/Modal/Modal';
 import PokemonList from '@/components/PokemonList/PokemonList';
 import Type from '@/components/common/Typography/TypoGraphy';
+import useGetTrainerData from '@/hooks/useGetTrainerData';
 import { useQuery } from '@apollo/client';
 
 const Home = () => {
+  const trainer = useGetTrainerData();
+  const [createTrainer, setCreateTrainer] = useState(false);
   const [limit, setLimit] = useState(50);
   const [count, setCount] = useState(1000);
   const [pokemons, setPokemons] = useState([]);
@@ -43,7 +48,11 @@ const Home = () => {
     <Flex as="section" width="100%" flexDirection="column">
       <HeroImage imgUrl="/image/pokemon.webp" width="100%" height="300px">
         <Flex flexDirection="column" justifyContent="flex-end" p={16}>
-          <Button variant="red">Start Collecting</Button>
+          {!trainer && (
+            <Button variant="red" onClick={() => setCreateTrainer(true)}>
+              Start Collecting
+            </Button>
+          )}
           <Type
             color="yellow"
             variant={['h6', 'h6', 'h2']}
@@ -72,6 +81,13 @@ const Home = () => {
         next={handleFetchMore}>
         <PokemonList dataSource={pokemons} loading={loading} />
       </InfiniteScroll>
+
+      <Modal
+        title="Create Trainer"
+        active={createTrainer}
+        onClose={() => setCreateTrainer(false)}>
+        <CreateTrainer />
+      </Modal>
     </Flex>
   );
 };

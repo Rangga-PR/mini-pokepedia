@@ -13,7 +13,7 @@ const TrainerProvider = ({ children }) => {
       case ADD_POKEMON: {
         const newState = {
           ...state,
-          pokemon: [...state.pokemon, action.payload],
+          pokemons: [...state.pokemons, action.payload],
         };
         setLocalItem('trainer', newState);
         return newState;
@@ -21,8 +21,10 @@ const TrainerProvider = ({ children }) => {
       case DELETE_POKEMON: {
         const newState = {
           ...state,
-          pokemon: state.pokemon.filter(
-            (p) => p.nickname !== action.payload.nickname
+          pokemons: state.pokemons.filter(
+            (p) =>
+              p.catch_date !== action.payload.catch_date &&
+              p.nickname !== action.payload.nickname
           ),
         };
         setLocalItem('trainer', newState);

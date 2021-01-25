@@ -1,12 +1,14 @@
+import React, { useMemo } from 'react';
+
 import Card from '@/common/Card/Card';
+import CatchCTA from '@/components/CatchCTA/CatchCTA';
 import Flex from '@/common/Flex/Flex';
 import { GET_POKEMON } from '@/graphql/query';
 import Picture from '@/common/Picture/Picture';
 import PokemonDetailLoading from './PokemonDetailLoading';
-import React from 'react';
+import PokemonMoves from './PokemonMoves';
 import Tag from '@/common/Tag/Tag';
 import Type from '@/components/common/Typography/TypoGraphy';
-import { pokemonTypes } from '@/helpers/index';
 import useGetTrainerData from '@/hooks/useGetTrainerData';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -17,6 +19,11 @@ const PokemonDetail = () => {
   const { loading, data } = useQuery(GET_POKEMON, {
     variables: { name },
   });
+
+  const owned = useMemo(() => {
+    if (trainer)
+      return trainer.pokemons.filter((p) => p.id === data?.pokemon.id).length;
+  }, [trainer, data]);
 
   if (loading) return <PokemonDetailLoading />;
 
@@ -63,7 +70,7 @@ const PokemonDetail = () => {
                   mb="8px"
                   fontWeight="bold"
                   color="white">{`Base Experience: ${data?.pokemon.base_experience}`}</Type>
-                <Type fontWeight="bold" color="white">{`Owned: ${0}`}</Type>
+                <Type fontWeight="bold" color="white">{`Owned: ${owned}`}</Type>
               </Flex>
 
               <Flex flexDirection="column" mt={['24px', '0']}>
@@ -105,27 +112,14 @@ const PokemonDetail = () => {
         </Flex>
       )}
 
-      {data && (
-        <Flex m="8px 16px" flexDirection="column">
-          <Type fontWeight="bold" variant="h6" color="black">
-            Available Moves
-          </Type>
+      <Flex m="8px 16px" flexDirection="column">
+        <Type fontWeight="bold" variant="h6" color="black">
+          Available Moves
+        </Type>
+        <PokemonMoves data={data?.pokemon?.moves || []} />
+      </Flex>
 
-          <Flex mt="16px" flexWrap="wrap" justifyContent="flex-start">
-            {data.pokemon.moves.map((m) => (
-              <Tag
-                p={['6px 12px', '8px 16px']}
-                key={m.move.name}
-                bg={
-                  pokemonTypes[Math.floor(Math.random() * pokemonTypes.length)]
-                }
-                m={['4px', '8px']}>
-                {m.move.name}
-              </Tag>
-            ))}
-          </Flex>
-        </Flex>
-      )}
+      {data && trainer && <CatchCTA pokemon={data?.pokemon || {}} />}
     </Flex>
   );
 };

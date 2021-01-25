@@ -27,10 +27,6 @@ const Home = () => {
   });
 
   useEffect(() => {
-    console.log(trainer);
-  }, [trainer]);
-
-  useEffect(() => {
     data && setPokemons(data.pokemons.results);
     data && count !== data.pokemons.count && setCount(data.pokemons.count);
   }, [data]);

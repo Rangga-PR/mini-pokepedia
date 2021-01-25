@@ -22,9 +22,7 @@ const TrainerProvider = ({ children }) => {
         const newState = {
           ...state,
           pokemons: state.pokemons.filter(
-            (p) =>
-              p.catch_date !== action.payload.catch_date &&
-              p.nickname !== action.payload.nickname
+            (p) => p.catch_id !== action.payload.catch_id
           ),
         };
         setLocalItem('trainer', newState);

@@ -6,3 +6,7 @@ export const oneLinesEllipsis = {
   textOverflow: 'ellipsis',
   wordBreak: 'break-word',
 };
+
+export const cursorPointer = {
+  cursor: 'pointer',
+};

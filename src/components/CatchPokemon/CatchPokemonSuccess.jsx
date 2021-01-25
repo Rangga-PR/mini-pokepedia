@@ -8,6 +8,7 @@ import Input from '@/common/Input/Input';
 import PropTypes from 'prop-types';
 import Type from '@/common/Typography/TypoGraphy';
 import { useHistory } from 'react-router-dom';
+import { uuid } from 'uuidv4';
 
 const CatchPokemonSuccess = ({ pokemon }) => {
   const trainer = useContext(trainerStore);
@@ -21,6 +22,7 @@ const CatchPokemonSuccess = ({ pokemon }) => {
         ...pokemon,
         nickname: nickName || pokemon.name,
         catch_date: new Date().toISOString(),
+        catch_id: uuid(),
       },
     });
 

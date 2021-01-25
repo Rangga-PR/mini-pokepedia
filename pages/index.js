@@ -6,6 +6,7 @@ import Home from '@/components/Home/Home';
 import MainLayout from '@/layouts/MainLayout';
 import PokemonDetail from '@/components/PokemonDetail/PokemonDetail';
 import Topnav from '@/components/Topnav/Topnav';
+import TrainerDetail from '@/components/TrainerDetail/TrainerDetail';
 import { trainerStore } from '@/context/trainerContext';
 
 export default function Index() {
@@ -25,6 +26,9 @@ export default function Index() {
           </Route>
           <Route path="/pokemon/:name">
             <PokemonDetail />
+          </Route>
+          <Route path="/trainer">
+            <TrainerDetail />
           </Route>
         </Switch>
       </MainLayout>

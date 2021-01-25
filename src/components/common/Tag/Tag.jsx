@@ -12,6 +12,7 @@ const StyledTag = styled.div`
   background-color: #0278ae;
   border: 2px solid;
   border-color: white;
+  width: fit-content;
   ${space} ${border} ${color} ${layout};
 `;
 

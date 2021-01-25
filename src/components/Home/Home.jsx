@@ -79,7 +79,11 @@ const Home = () => {
         dataLength={pokemons.length}
         hasMore={pokemons.length < count}
         next={handleFetchMore}>
-        <PokemonList dataSource={pokemons} loading={loading} />
+        <PokemonList
+          dataSource={pokemons}
+          loading={loading}
+          trainer={trainer.state}
+        />
       </InfiniteScroll>
 
       <Modal

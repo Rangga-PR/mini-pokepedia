@@ -4,7 +4,11 @@ import PokemonCard from '@/components/PokemonCard/PokemonCard';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const PokemonList = ({ dataSource, loading }) => {
+const PokemonList = ({ dataSource, loading, trainer }) => {
+  const getTotalOwnedPokemonById = (id) => {
+    return trainer?.pokemons?.filter((p) => p.id === id).length;
+  };
+
   return (
     <Grid
       gridTemplateColumns={[
@@ -14,7 +18,7 @@ const PokemonList = ({ dataSource, loading }) => {
       ]}>
       {dataSource.map((val) => (
         <Link key={val.id} to={`/pokemon/${val.name}`}>
-          <PokemonCard data={val} />
+          <PokemonCard data={val} owned={getTotalOwnedPokemonById(val.id)} />
         </Link>
       ))}
 
@@ -26,6 +30,11 @@ const PokemonList = ({ dataSource, loading }) => {
 
 PokemonList.propTypes = {
   loading: PropTypes.bool,
+  trainer: PropTypes.shape({
+    name: PropTypes.string,
+    gender: PropTypes.string,
+    pokemons: PropTypes.arrayOf(PropTypes.object),
+  }),
   dataSource: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,

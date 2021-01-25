@@ -3,6 +3,7 @@ import { background, layout, space } from 'styled-system';
 import styled from '@emotion/styled';
 
 const Card = styled.div`
+  position: relative;
   background: #fff;
   border: 1px solid #ebebeb;
   border-radius: 8px;

@@ -1,3 +1,4 @@
+import Badge from '@/common/Badge/Badge';
 import Card from '@/common/Card/Card';
 import Flex from '@/common/Flex/Flex';
 import Image from 'next/image';
@@ -7,7 +8,7 @@ import Skeleton from 'react-loading-skeleton';
 import Type from '@/common/Typography/TypoGraphy';
 import { oneLinesEllipsis } from '@/styles/utility';
 
-const PokemonCard = ({ data, loading }) => {
+const PokemonCard = ({ data, loading, owned }) => {
   if (loading)
     return (
       <Card data-testid="card-loading">
@@ -28,12 +29,18 @@ const PokemonCard = ({ data, loading }) => {
       <Type fontSize="8px" fontFamily="twop" style={oneLinesEllipsis}>
         {data.name}
       </Type>
+      {owned > 0 && (
+        <Badge position="absolute" top="0">
+          {owned}
+        </Badge>
+      )}
     </Card>
   );
 };
 
 PokemonCard.propTypes = {
   loading: PropTypes.bool,
+  owned: PropTypes.number,
   data: PropTypes.shape({
     id: PropTypes.number,
     image: PropTypes.string.isRequired,

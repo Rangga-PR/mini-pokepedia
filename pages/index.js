@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Head from 'next/head';
 import Home from '@/components/Home/Home';
 import MainLayout from '@/layouts/MainLayout';
+import PageNotFound from '@/components/PageNotFound/PageNotFound';
 import PokemonDetail from '@/components/PokemonDetail/PokemonDetail';
 import Topnav from '@/components/Topnav/Topnav';
 import TrainerDetail from '@/components/TrainerDetail/TrainerDetail';
@@ -29,6 +30,9 @@ export default function Index() {
           </Route>
           <Route path="/trainer">
             <TrainerDetail />
+          </Route>
+          <Route>
+            <PageNotFound />
           </Route>
         </Switch>
       </MainLayout>

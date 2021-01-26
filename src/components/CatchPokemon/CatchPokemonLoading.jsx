@@ -1,5 +1,5 @@
 import Flex from '@/common/Flex/Flex';
-import Image from 'next/image';
+import Img from '@/common/Img/Img';
 import React from 'react';
 import Type from '@/common/Typography/TypoGraphy';
 import { keyframes } from '@emotion/react';
@@ -19,13 +19,18 @@ const shake = keyframes`
   }
 `;
 
-const Pokeball = styled(Image)`
+const Pokeball = styled(Img)`
   animation: ${shake} 3s infinite ease-out;
 `;
 
 const CatchPokemonLoading = () => {
   return (
-    <Flex flexDirection="column" p="16px" data-testid="catch-loading">
+    <Flex
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      p="16px"
+      data-testid="catch-loading">
       <Pokeball
         src="/svg/pokeball.svg"
         alt="pokeball"

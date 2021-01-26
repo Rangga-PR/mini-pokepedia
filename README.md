@@ -4,7 +4,7 @@ Mini Pokemon Mobile Web App where you can explore a lot of pokemon and collect t
 
 TL:DR: Pokemon is an isekai sabung ayam.
 
-Deployed on: https://pokepedia-lyart.vercel.app
+Deployed on: https://mini-pokepedia.vercel.app
 
 ## Stacks
 

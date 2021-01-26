@@ -11,16 +11,29 @@ import { useHistory } from 'react-router-dom';
 import { uuid } from 'uuidv4';
 
 const CatchPokemonSuccess = ({ pokemon }) => {
-  const trainer = useContext(trainerStore);
+  const { state, dispatch } = useContext(trainerStore);
   const history = useHistory();
   const [nickName, setNickname] = useState(pokemon.name || '');
+  const [error, setError] = useState(undefined);
 
   const keepPokemon = () => {
-    trainer.dispatch({
+    setError(undefined);
+
+    if (!nickName) {
+      setError({ message: 'Pokemon nickname cannot be empty' });
+      return;
+    }
+
+    if (state.pokemons.find((p) => p.nickname === nickName)) {
+      setError({ message: 'Pokemon nickname already taken' });
+      return;
+    }
+
+    dispatch({
       type: ADD_POKEMON,
       payload: {
         ...pokemon,
-        nickname: nickName || pokemon.name,
+        nickname: nickName,
         catch_date: new Date().toISOString(),
         catch_id: uuid(),
       },
@@ -67,6 +80,12 @@ const CatchPokemonSuccess = ({ pokemon }) => {
           onClick={keepPokemon}>
           Keep
         </Button>
+      </Flex>
+
+      <Flex width="100%" height="8px">
+        <Type color="red" fontFamily="twop" fontSize="8px" mt="8px">
+          {error?.message}
+        </Type>
       </Flex>
     </Flex>
   );

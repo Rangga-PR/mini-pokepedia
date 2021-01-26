@@ -58,14 +58,17 @@ const CreateTrainer = () => {
           onClick={() => setBoy(true)}
         />
       </Flex>
-      <Flex as="form" mt="32px">
+      <Flex mt="32px">
         <Input
-          id="trainer-name"
+          data-testid="trainer-name"
           mr="16px"
           placeholder="What is your name?"
           onChange={(e) => setName(e.target.value)}
         />
-        <Button opacity={name ? 1 : 0.5} onClick={handleCreate}>
+        <Button
+          data-testid="create-button"
+          opacity={name ? 1 : 0.5}
+          onClick={handleCreate}>
           Create
         </Button>
       </Flex>

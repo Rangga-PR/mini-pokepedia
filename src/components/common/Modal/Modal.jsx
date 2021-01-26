@@ -34,11 +34,15 @@ const Modal = ({
   height = '500px',
   active,
   onClose,
+  ...props
 }) => {
   useDisableBodyScroll(active);
 
   return (
-    <Overlay display={active ? 'flex' : 'none'} bg={['white', 'transparent']}>
+    <Overlay
+      display={active ? 'flex' : 'none'}
+      bg={['white', 'transparent']}
+      {...props}>
       <StyledModal
         borderRadius={['0', '8px']}
         width={['100%', width]}

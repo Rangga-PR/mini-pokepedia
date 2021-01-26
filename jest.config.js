@@ -6,6 +6,10 @@ module.exports = {
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
   },
+  setupFiles: [
+    'jest-localstorage-mock',
+    '<rootDir>/__mocks__/nextImageMock.js',
+  ],
   moduleNameMapper: {
     '@/components(.*)$': '<rootDir>/src/components$1',
     '@/common(.*)$': '<rootDir>/src/components/common$1',

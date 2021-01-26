@@ -25,14 +25,19 @@ const Pokeball = styled(Image)`
 
 const CatchPokemonLoading = () => {
   return (
-    <Flex flexDirection="column" p="16px">
+    <Flex flexDirection="column" p="16px" data-testid="catch-loading">
       <Pokeball
         src="/svg/pokeball.svg"
         alt="pokeball"
         width="100px"
         height="100px"
       />
-      <Type mt="30px" fontFamily="twop" variant="caption" textAlign="center">
+      <Type
+        mt="30px"
+        fontFamily="twop"
+        variant="caption"
+        textAlign="center"
+        data-testid="message">
         You Thrown a pokeball, please wait...
       </Type>
     </Flex>

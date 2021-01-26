@@ -5,7 +5,7 @@ import Type from '@/common/Typography/TypoGraphy';
 
 const CatchPokemonFailed = () => {
   return (
-    <Flex flexDirection="column" p="16px">
+    <Flex flexDirection="column" p="16px" data-testid="catch-failed">
       <Image
         src="/svg/open-pokeball.svg"
         alt="pokeball"
@@ -13,7 +13,12 @@ const CatchPokemonFailed = () => {
         height="100px"
       />
 
-      <Type mt="30px" fontFamily="twop" variant="caption" textAlign="center">
+      <Type
+        mt="30px"
+        fontFamily="twop"
+        variant="caption"
+        textAlign="center"
+        data-testid="message">
         Oh no, it got away......
       </Type>
     </Flex>

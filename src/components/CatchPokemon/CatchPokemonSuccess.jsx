@@ -31,6 +31,7 @@ const CatchPokemonSuccess = ({ pokemon }) => {
 
   return (
     <Flex
+      data-testid="catch-success"
       flexDirection="column"
       p="16px"
       size="100%"
@@ -52,13 +53,18 @@ const CatchPokemonSuccess = ({ pokemon }) => {
 
       <Flex width="100%" mt="24px">
         <Input
+          data-testid="nickname"
           width="100%"
           p="12px"
           placeholder={pokemon.name}
           value={nickName}
           onChange={(e) => setNickname(e.target.value)}
         />
-        <Button ml="16px" p="8px 24px" onClick={keepPokemon}>
+        <Button
+          data-testid="keep-button"
+          ml="16px"
+          p="8px 24px"
+          onClick={keepPokemon}>
           Keep
         </Button>
       </Flex>

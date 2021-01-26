@@ -8,11 +8,14 @@ const PokemonDetail = () => {
   return (
     <Flex as="section" width="100%" flexDirection="column">
       <Flex p="16px" flexWrap={['wrap', 'nowrap']}>
-        <Card width={['100%', '300px']} m={['0 0 16px 0', '0 16px 0 0']}>
+        <Card
+          width={['100%', '300px']}
+          m={['0 0 16px 0', '0 16px 0 0']}
+          data-testid="image-loading">
           <Skeleton width="100%" height="280px" />
         </Card>
 
-        <div style={{ width: '100%' }}>
+        <div style={{ width: '100%' }} data-testid="status-loading">
           <Skeleton
             width="100%"
             height="300px"
@@ -26,7 +29,11 @@ const PokemonDetail = () => {
           Available Moves
         </Type>
 
-        <Flex mt="16px" flexWrap="wrap" justifyContent="flex-start">
+        <Flex
+          mt="16px"
+          flexWrap="wrap"
+          justifyContent="flex-start"
+          data-testid="moves-loading">
           {[...Array(8).keys()].map((m) => (
             <Skeleton
               key={m}

@@ -24,6 +24,7 @@ const CatchCTA = ({ pokemon }) => {
   return (
     <>
       <Container
+        data-testid="catch-cta"
         bottom="0"
         right={['0', '0', 'calc((100vw - 1024px)/2)']}
         onClick={() => setCatchPokemon(true)}>
@@ -45,6 +46,7 @@ const CatchCTA = ({ pokemon }) => {
       </Container>
 
       <Modal
+        data-testid="catch-pokemon-modal"
         title={`Catch ${pokemon.name}`}
         active={catchPokemon}
         onClose={() => setCatchPokemon(false)}>

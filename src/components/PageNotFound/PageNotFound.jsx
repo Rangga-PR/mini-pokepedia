@@ -11,8 +11,9 @@ const PageNotFound = () => {
       alignItems="center"
       justifyContent="center"
       flexDirection="column">
-      <Picture src="/svg/pokeball.svg" width="25vw" />
+      <Picture src="/svg/pokeball.svg" width="25vw" alt="pokeball" />
       <Type
+        data-testid="message"
         mt="32px"
         variant={['h4', 'h1']}
         fontWeight="bold"

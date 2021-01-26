@@ -7,6 +7,7 @@ import Picture from '@/common/Picture/Picture';
 import Type from '@/common/Typography/TypoGraphy';
 import { setLocalItem } from '@/helpers/index';
 import styled from '@emotion/styled';
+import { useHistory } from 'react-router-dom';
 
 const Character = styled(Picture)`
   cursor: pointer;
@@ -17,6 +18,7 @@ const Character = styled(Picture)`
 const CreateTrainer = () => {
   const [boy, setBoy] = useState(false);
   const [name, setName] = useState('');
+  const history = useHistory();
 
   const handleCreate = () => {
     if (!name) return;
@@ -25,6 +27,7 @@ const CreateTrainer = () => {
       gender: boy ? 'Male' : 'Female',
       pokemons: [],
     });
+    history.go(0);
   };
 
   return (

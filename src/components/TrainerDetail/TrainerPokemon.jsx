@@ -49,6 +49,7 @@ const TrainerPokemon = ({ pokemons, onDelete }) => {
           </Flex>
 
           <Flex
+            data-testid="delete-pokemon"
             onClick={() => onDelete(val)}
             m="8px 8px 0 0"
             p="2px"

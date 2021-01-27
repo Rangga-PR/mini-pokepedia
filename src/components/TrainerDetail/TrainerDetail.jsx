@@ -59,7 +59,7 @@ const TrainerDetail = () => {
             Owned Pokemons
           </Type>
           <Tag mt="8px" bg="white" color="black">
-            {state.pokemons.length}
+            {state?.pokemons?.length || 0}
           </Tag>
         </Flex>
       </Flex>

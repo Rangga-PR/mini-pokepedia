@@ -30,7 +30,7 @@ const PokemonDetail = () => {
   return (
     <Flex as="section" width="100%" flexDirection="column">
       {data && (
-        <Flex p="16px" flexWrap={['wrap', 'nowrap']}>
+        <Flex p="16px" flexWrap={['wrap', 'nowrap']} data-testid="status">
           <Card width={['100%', '300px']} m={['0 0 16px 0', '0 16px 0 0']}>
             <Picture
               src={data?.pokemon?.sprites.front_default}
@@ -112,7 +112,7 @@ const PokemonDetail = () => {
         </Flex>
       )}
 
-      <Flex m="8px 16px" flexDirection="column">
+      <Flex m="8px 16px" flexDirection="column" data-testid="moves">
         <Type fontWeight="bold" variant="h6" color="black">
           Available Moves
         </Type>

@@ -54,6 +54,7 @@ const Modal = ({
 
           <CloseButton
             as="button"
+            data-testid="close-modal"
             src="/svg/fi-br-cross-small.svg"
             width={24}
             height={24}

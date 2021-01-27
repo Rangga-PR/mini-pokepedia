@@ -49,7 +49,10 @@ const Home = () => {
       <HeroImage imgUrl="/image/pokemon.webp" width="100%" height="300px">
         <Flex flexDirection="column" justifyContent="flex-end" p={16}>
           {!trainer.state && (
-            <Button variant="red" onClick={() => setCreateTrainer(true)}>
+            <Button
+              variant="red"
+              onClick={() => setCreateTrainer(true)}
+              data-testid="create-trainer-cta">
               Start Collecting
             </Button>
           )}
